@@ -15,8 +15,8 @@ const Illnesses = () => {
     );
     const json = await res.json();
     const sortedData = json._embedded.illnesses.sort((a, b) => {
-      var nameA = a.illness.name.toUpperCase(); // ignore upper and lowercase
-      var nameB = b.illness.name.toUpperCase(); // ignore upper and lowercase
+      const nameA = a.illness.name.toUpperCase(); // ignore upper and lowercase
+      const nameB = b.illness.name.toUpperCase(); // ignore upper and lowercase
       if (nameA < nameB) {
         return -1;
       }
@@ -33,17 +33,17 @@ const Illnesses = () => {
   };
 
   useEffect(() => {
-    var elems = document.querySelectorAll('.modal');
+    const elems = document.querySelectorAll('.modal');
     window.M.Modal.init(elems);
 
     fetchIllnesses();
   }, []);
 
   return (
-    <div className='col s6 offset-s3'>
-      <ul className='collection z-depth-2 with-header'>
-        <li className='collection-header'>
-          <h5>What's your illness?</h5>
+    <div className="col s6 offset-s3">
+      <ul className="collection z-depth-2 with-header">
+        <li className="collection-header">
+          <h5>What&lsquo;s your illness?</h5>
         </li>
         {loading ? (
           <Preloader />

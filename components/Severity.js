@@ -1,10 +1,12 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const Severity = props => {
+  const { id, emoticon, setSeverity } = props;
   useEffect(() => {
     document.querySelectorAll('input[type="radio"]').forEach(radioBtn => {
-      radioBtn.addEventListener('change', function(e) {
-        props.setSeverity(parseInt(e.target.value));
+      radioBtn.addEventListener('change', e => {
+        setSeverity(parseInt(e.target.value, 10));
 
         document
           .querySelector('#severity.modal .modal-footer a')
@@ -14,20 +16,12 @@ const Severity = props => {
   });
 
   return (
-    <div className={`col s2 center-align ${props.id === 1 ? 'offset-s1' : ''}`}>
-      <input
-        value={props.id}
-        id={`severity-${props.id}`}
-        name='severity'
-        type='radio'
-      />
-      <label
-        htmlFor={`severity-${props.id}`}
-        className='blue-text text-darken-4'
-      >
-        {props.emoticon}
+    <div className={`col s2 center-align ${id === 1 ? 'offset-s1' : ''}`}>
+      <input value={id} id={`severity-${id}`} name="severity" type="radio" />
+      <label htmlFor={`severity-${id}`} className="blue-text text-darken-4">
+        {emoticon}
         <br />
-        {props.id}
+        {id}
       </label>
       <style jsx>
         {`
@@ -49,6 +43,12 @@ const Severity = props => {
       </style>
     </div>
   );
+};
+
+Severity.propTypes = {
+  id: PropTypes.number.isRequired,
+  emoticon: PropTypes.string.isRequired,
+  setSeverity: PropTypes.func.isRequired,
 };
 
 export default Severity;

@@ -5,17 +5,20 @@ import Hospitals from '../components/Hospitals';
 
 const HospitalsPage = () => {
   const router = useRouter();
-  const severity = router.query.severity;
+  const { severity } = router.query;
 
   return (
     <div>
       <Head>
-        <title>Hospitals — Severity level {severity}</title>
+        <title>
+          Hospitals — Severity level
+          {severity}
+        </title>
       </Head>
 
-      <main className='container'>
-        <div className='row'>
-          <Hospitals severity={parseInt(severity)} />
+      <main className="container">
+        <div className="row">
+          <Hospitals severity={parseInt(severity, 10)} />
         </div>
       </main>
     </div>

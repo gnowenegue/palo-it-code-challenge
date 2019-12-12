@@ -14,16 +14,16 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel='icon' href='/favicon.ico' />
+          <link rel="icon" href="/favicon.ico" />
           <link
-            href='https://fonts.googleapis.com/icon?family=Material+Icons'
-            rel='stylesheet'
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
           />
         </Head>
         <body>
           <Main />
           <NextScript />
-          <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" />
         </body>
       </Html>
     );

@@ -2,6 +2,7 @@
   "env": {
     "browser": true,
     "es6": true,
+    "jest": true,
     "node": true
   },
   "extends": [
@@ -13,6 +14,7 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
+  "ignorePatterns": [".next/"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -22,10 +24,9 @@
   },
   "plugins": ["react"],
   "rules": {
+    "no-underscore-dangle": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/react-in-jsx-scope": "off",
-    "no-underscore-dangle": "off"
-  },
-  "ignorePatterns": [".next/"]
+    "react/react-in-jsx-scope": "off"
+  }
 }

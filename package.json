@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint components/**/*.js contexts/**/*.js helpers/**/*.js pages/**/*.js --fix"
+    "lint": "eslint . --ext .js --fix"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",

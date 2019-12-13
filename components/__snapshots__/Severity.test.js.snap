@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Severity /> Snapshot test 1`] = `
+<div
+  className="jsx-3703842634 col s2 center-align offset-s1"
+>
+  <input
+    className="jsx-3703842634"
+    id="severity-1"
+    name="severity"
+    type="radio"
+    value={1}
+  />
+  <label
+    className="jsx-3703842634 blue-text text-darken-4"
+    htmlFor="severity-1"
+  >
+    emoticon
+    <br
+      className="jsx-3703842634"
+    />
+    1
+  </label>
+</div>
+`;

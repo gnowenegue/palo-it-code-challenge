@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Illness /> Snapshot test 1`] = `
+<a
+  className="jsx-4047661875 collection-item blue-text waves-effect waves-red modal-trigger"
+  data-illness="flu"
+  data-illnessid={1}
+  data-target="severity"
+  href="#!"
+  onClick={[Function]}
+>
+  flu
+  <i
+    className="jsx-4047661875 secondary-content material-icons"
+  >
+    send
+  </i>
+</a>
+`;

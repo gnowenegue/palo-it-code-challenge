@@ -46,10 +46,8 @@ describe('convertMinsToHrs()', () => {
         originalMins: input,
       });
     });
-
   });
   describe('Edge cases', () => {
-
     test('negative input', () => {
       const input = -1;
       expect(() => {
@@ -63,21 +61,21 @@ describe('convertMinsToHrs()', () => {
         convertMinsToHrs(input);
       }).toThrow('Input must be an integer.');
     });
-    
+
     test('boolean input', () => {
       const input = false;
       expect(() => {
         convertMinsToHrs(input);
       }).toThrow('Input must be an integer.');
     });
-    
+
     test('array input', () => {
       const input = [123];
       expect(() => {
         convertMinsToHrs(input);
       }).toThrow('Input must be an integer.');
     });
-    
+
     test('float input', () => {
       const input = 1.23;
       expect(() => {

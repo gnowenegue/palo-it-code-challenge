@@ -14,7 +14,7 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "ignorePatterns": [".next/"],
+  "ignorePatterns": [".next/", "*.test.js"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true

@@ -2,23 +2,23 @@
 
 exports[`<Hospitals /> Snapshot test 1`] = `
 <ul
-  className="jsx-1699741513 collection z-depth-2 with-header"
+  className="collection z-depth-2 with-header"
 >
   <li
-    className="jsx-1699741513 collection-header"
+    className="collection-header"
   >
     <h5
-      className="jsx-1699741513 center-align"
+      className="center-align"
     >
       <i
-        className="jsx-1699741513 material-icons pink-text"
+        className="material-icons pink-text"
       >
         healing
       </i>
         Hospitals — Severity level 
       4
       <i
-        className="jsx-1699741513 material-icons pink-text"
+        className="material-icons pink-text"
       >
         healing
       </i>

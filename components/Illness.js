@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 import AppContext from '../contexts/AppContext';
 
-const Illness = props => {
+const Illness = ({ illness }) => {
   const { setIllness } = useContext(AppContext);
-
-  const { illness } = props;
 
   const updateIllness = e => {
     e.preventDefault();

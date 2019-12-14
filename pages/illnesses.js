@@ -1,19 +1,19 @@
 import Head from 'next/head';
 
-import Form from '../components/Form';
+import Illnesses from '../components/Illnesses';
 
-const HomePage = () => (
+const IllnessesPage = () => (
   <div>
     <Head>
-      <title>Home</title>
+      <title>Illnesses</title>
     </Head>
 
     <main className="container">
       <div className="row">
-        <Form />
+        <Illnesses />
       </div>
     </main>
   </div>
 );
 
-export default HomePage;
+export default IllnessesPage;

@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const Severity = props => {
-  const { id, emoticon, setSeverity } = props;
+const Severity = ({ id, emoticon, setSeverity }) => {
   useEffect(() => {
     document.querySelectorAll('input[type="radio"]').forEach(radioBtn => {
       radioBtn.addEventListener('change', e => {

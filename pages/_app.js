@@ -1,5 +1,8 @@
 import React from 'react';
+
 import App from 'next/app';
+
+import AppProvider from '../components/AppProvider';
 
 import 'materialize-css/dist/css/materialize.min.css';
 
@@ -18,7 +21,11 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-    return <Component {...pageProps} />;
+    return (
+      <AppProvider>
+        <Component {...pageProps} />
+      </AppProvider>
+    );
   }
 }
 

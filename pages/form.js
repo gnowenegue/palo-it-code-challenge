@@ -2,10 +2,10 @@ import Head from 'next/head';
 
 import Form from '../components/Form';
 
-const HomePage = () => (
+const FormPage = () => (
   <div>
     <Head>
-      <title>Home</title>
+      <title>Form</title>
     </Head>
 
     <main className="container">
@@ -16,4 +16,4 @@ const HomePage = () => (
   </div>
 );
 
-export default HomePage;
+export default FormPage;

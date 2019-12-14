@@ -254,14 +254,13 @@ exports[`<Illnesses /> Snapshot test 1`] = `
     <div
       className="jsx-4257545236 modal-footer center-align"
     >
-      <a
+      <button
         className="jsx-4257545236 waves-effect waves-red modal-close btn disabled"
-        href="#!"
         onClick={[Function]}
-        onMouseEnter={[Function]}
+        type="button"
       >
         Which hospitals?
-      </a>
+      </button>
     </div>
   </div>
 </div>

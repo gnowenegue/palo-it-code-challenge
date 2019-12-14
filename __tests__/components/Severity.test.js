@@ -1,9 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount, shallow, render } from 'enzyme';
+// import { mount, shallow, render } from 'enzyme';
 
-// import AppContext from '../contexts/AppContext';
-import Severity from './Severity';
+import Severity from '../../components/Severity';
 
 describe('<Severity />', () => {
   test('Snapshot test', () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount, shallow, render } from 'enzyme';
+// import { mount, shallow, render } from 'enzyme';
 
-import Preloader from './Preloader';
+import Preloader from '../../components/Preloader';
 
 describe('<Preloader />', () => {
   test('Snapshot test', () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount, shallow, render } from 'enzyme';
+// import { mount, shallow, render } from 'enzyme';
 
-import Hospitals from './Hospitals';
+import Hospitals from '../../components/Hospitals';
 
 describe('<Hospitals />', () => {
   test('Snapshot test', () => {

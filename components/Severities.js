@@ -32,10 +32,7 @@ const Severities = () => {
         </div>
       </div>
       <div className="modal-footer center-align">
-        <Link
-          href={`/hospitals?severity=${severity}`}
-          // as={`/hospitals/${severity}`}
-        >
+        <Link href={`/hospitals?severity=${severity}`}>
           <a
             href="#!"
             className="waves-effect waves-red modal-close btn disabled"

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Preloader from './Preloader';
+import Hospital from './Hospital';
 
 import convertMinsToHrs from '../helpers/convertMinsToHrs';
 
@@ -82,32 +83,9 @@ const Hospitals = props => {
         <Preloader />
       ) : (
         hospitals.map(hospital => (
-          <li key={hospital.id} className="collection-item">
-            <div>
-              {hospital.name}
-              <span className="secondary-content valign-wrapper">
-                <span className="red-text text-accent-4">
-                  {hospital.waitingList[0].waitingTime.hrs > 0
-                    ? `${hospital.waitingList[0].waitingTime.hrs}hrs `
-                    : ''}
-                  {hospital.waitingList.length > 0
-                    ? hospital.waitingList[0].waitingTime.mins
-                    : ''}
-                  mins
-                </span>
-                <i className="material-icons orange-text">timelapse</i>
-              </span>
-            </div>
-          </li>
+          <Hospital key={hospital.id} hospital={hospital} />
         ))
       )}
-      <style jsx>
-        {`
-          .collection .collection-item .secondary-content .material-icons {
-            margin-left: 10px;
-          }
-        `}
-      </style>
     </ul>
   );
 };

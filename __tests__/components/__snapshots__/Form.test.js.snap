@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> Snapshot test 1`] = `
+<form
+  className="jsx-3607409965 col s8 offset-s2"
+  id="userForm"
+  name="userForm"
+  onSubmit={[Function]}
+>
+  <h5
+    className="jsx-3607409965"
+  >
+    Who are you?
+  </h5>
+  <div
+    className="jsx-3607409965 row"
+  >
+    <div
+      className="jsx-3607409965 input-field col s6"
+    >
+      <input
+        className="jsx-3607409965 validate"
+        id="firstName"
+        name="firstName"
+        required={true}
+        type="text"
+      />
+      <label
+        className="jsx-3607409965"
+        htmlFor="firstName"
+      >
+        First Name
+      </label>
+      <span
+        className="jsx-3607409965 helper-text"
+        data-error="Please enter your first name."
+      />
+    </div>
+    <div
+      className="jsx-3607409965 input-field col s6"
+    >
+      <input
+        className="jsx-3607409965 validate"
+        id="lastName"
+        name="lastName"
+        required={true}
+        type="text"
+      />
+      <label
+        className="jsx-3607409965"
+        htmlFor="lastName"
+      >
+        Last Name
+      </label>
+      <span
+        className="jsx-3607409965 helper-text"
+        data-error="Please enter your last name."
+      />
+    </div>
+    <div
+      className="jsx-3607409965 input-field col s12"
+    >
+      <input
+        className="jsx-3607409965 validate"
+        id="email"
+        name="email"
+        required={true}
+        type="email"
+      />
+      <label
+        className="jsx-3607409965"
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <span
+        className="jsx-3607409965 helper-text"
+        data-error="Please enter a valid email."
+      />
+    </div>
+    <div
+      className="jsx-3607409965 col s12 center-align"
+    >
+      <button
+        className="jsx-3607409965 btn waves-effect waves-light"
+        type="submit"
+      >
+        Submit
+        <i
+          className="jsx-3607409965 material-icons right"
+        >
+          send
+        </i>
+      </button>
+    </div>
+  </div>
+</form>
+`;

@@ -1,4 +1,4 @@
-import convertMinsToHrs from './convertMinsToHrs';
+import convertMinsToHrs from '../../helpers/convertMinsToHrs';
 
 describe('convertMinsToHrs()', () => {
   describe('Correct results', () => {

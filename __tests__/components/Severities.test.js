@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount, shallow, render } from 'enzyme';
+// import { mount, shallow, render } from 'enzyme';
 
-import AppContext from '../contexts/AppContext';
-import Illnesses from './Illnesses';
+import AppContext from '../../contexts/AppContext';
+import Severities from '../../components/Severities';
 
-describe('<Illnesses />', () => {
+describe('<Severities />', () => {
   test('Snapshot test', () => {
     const render = renderer.create(
       <AppContext.Provider
@@ -14,7 +14,7 @@ describe('<Illnesses />', () => {
           illness: { id: 1, name: 'flu' },
         }}
       >
-        <Illnesses />
+        <Severities />
       </AppContext.Provider>
     );
     expect(render.toJSON()).toMatchSnapshot();

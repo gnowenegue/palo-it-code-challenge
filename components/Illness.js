@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import AppContext from '../contexts/AppContext';
 
-const Illness = ({ illness }) => {
+const Illness = ({ illness: { id, name } }) => {
   const { setIllness } = useContext(AppContext);
 
   const updateIllness = e => {
@@ -23,18 +23,17 @@ const Illness = ({ illness }) => {
   };
 
   return (
-    <>
-      <a
-        href="#!"
-        data-target="severity"
-        data-illnessid={illness.id}
-        data-illness={illness.name}
-        onClick={updateIllness}
-        className="collection-item blue-text waves-effect waves-red modal-trigger"
-      >
-        {illness.name}
-        <i className="secondary-content material-icons">send</i>
-      </a>
+    <a
+      href="#!"
+      data-target="severity"
+      data-illnessid={id}
+      data-illness={name}
+      onClick={updateIllness}
+      className="collection-item blue-text waves-effect waves-red modal-trigger"
+    >
+      {name}
+      <i className="secondary-content material-icons">send</i>
+
       <style jsx>
         {`
           a.collection-item:not(.active):hover {
@@ -46,7 +45,7 @@ const Illness = ({ illness }) => {
           }
         `}
       </style>
-    </>
+    </a>
   );
 };
 

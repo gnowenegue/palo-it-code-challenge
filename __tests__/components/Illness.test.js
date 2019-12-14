@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount, shallow, render } from 'enzyme';
+// import { mount, shallow, render } from 'enzyme';
 
-import AppContext from '../contexts/AppContext';
-import Illness from './Illness';
+import AppContext from '../../contexts/AppContext';
+import Illness from '../../components/Illness';
 
 describe('<Illness />', () => {
   test('Snapshot test', () => {

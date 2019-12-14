@@ -1,12 +1,27 @@
 import React, { useContext } from 'react';
-import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
+import Router from 'next/router';
 
 import AppContext from '../contexts/AppContext';
 
 import Severity from './Severity';
 
 const Severities = () => {
-  const { setSeverity, illness, severity } = useContext(AppContext);
+  const { setSeverity, illness, severity, user } = useContext(AppContext);
+
+  const handleClick = () => {
+    const data = { illness, severity, user };
+    fetch(`/users`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(res => {
+      if (res.status >= 400) throw new Error('Bad response from server.');
+      return Router.push(`/hospitals?severity=${severity}`);
+    });
+  };
 
   const emoticons = ['🤤', '🥴', '🤢', '🤮', '👿'];
 
@@ -32,14 +47,16 @@ const Severities = () => {
         </div>
       </div>
       <div className="modal-footer center-align">
-        <Link href={`/hospitals?severity=${severity}`}>
-          <a
-            href="#!"
-            className="waves-effect waves-red modal-close btn disabled"
-          >
-            Which hospitals?
-          </a>
-        </Link>
+        {/* <Link href={`/hospitals?severity=${severity}`}> */}
+        <button
+          // href="#!"
+          type="button"
+          className="waves-effect waves-red modal-close btn disabled"
+          onClick={handleClick}
+        >
+          Which hospitals?
+        </button>
+        {/* </Link> */}
       </div>
       <style jsx>
         {`

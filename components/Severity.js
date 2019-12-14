@@ -8,7 +8,7 @@ const Severity = ({ id, emoticon, setSeverity }) => {
         setSeverity(parseInt(e.target.value, 10));
 
         document
-          .querySelector('#severity.modal .modal-footer a')
+          .querySelector('#severity.modal .modal-footer button')
           .classList.remove('disabled');
       });
     });

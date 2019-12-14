@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import Router from 'next/router';
 
 import AppContext from '../contexts/AppContext';

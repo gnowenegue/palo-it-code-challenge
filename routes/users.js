@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     // eslint-disable-next-line no-console
     if (err) return console.error(err);
     return res.json(user);
-  });
+  }).sort('-dateCreated');
 });
 
 router.post('/', (req, res) => {

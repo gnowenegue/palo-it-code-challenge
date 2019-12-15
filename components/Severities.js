@@ -11,7 +11,7 @@ const Severities = () => {
 
   const handleClick = () => {
     const data = { illness, severity, user };
-    fetch(`/users`, {
+    fetch('/users', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

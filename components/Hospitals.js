@@ -12,61 +12,77 @@ const Hospitals = props => {
 
   const { severity } = props;
 
-  const fetchHospitals = async () => {
-    const res = await Promise.all([
-      fetch(
-        'http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals?limit=20'
-      ).then(data => data.json()),
-      fetch(
-        'http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals?limit=20&page=1'
-      ).then(data => data.json()),
-    ]);
-
-    const json = [...res[0]._embedded.hospitals, ...res[1]._embedded.hospitals];
-
-    const computeWaitingTime = _hospitals => {
-      return {
-        ..._hospitals,
-        waitingList: _hospitals.waitingList.map(waitList => {
-          return {
-            ...waitList,
-            waitingTime: convertMinsToHrs(
-              waitList.patientCount * waitList.averageProcessTime
-            ),
-          };
-        }),
-      };
+  const computeWaitingTime = _hospitals => {
+    return {
+      ..._hospitals,
+      waitingList: _hospitals.waitingList.map(waitList => {
+        return {
+          ...waitList,
+          waitingTime: convertMinsToHrs(
+            waitList.patientCount * waitList.averageProcessTime
+          ),
+        };
+      }),
     };
+  };
 
-    const filterHospitalsBySeverity = _severity => _hospitals => {
-      return {
-        ..._hospitals,
-        waitingList: _hospitals.waitingList.filter(
-          x => x.levelOfPain === _severity
-        ),
-      };
+  const filterHospitalsBySeverity = _severity => _hospitals => {
+    return {
+      ..._hospitals,
+      waitingList: _hospitals.waitingList.filter(
+        x => x.levelOfPain === _severity
+      ),
     };
+  };
 
-    const sortHospitals = (a, b) => {
-      const timeA = a.waitingList[0].waitingTime.originalMins;
-      const timeB = b.waitingList[0].waitingTime.originalMins;
+  const sortHospitals = (a, b) => {
+    const timeA = a.waitingList[0].waitingTime.originalMins;
+    const timeB = b.waitingList[0].waitingTime.originalMins;
 
-      return timeA - timeB;
-    };
-
-    const hospitalsData = json
-      .map(computeWaitingTime)
-      .map(filterHospitalsBySeverity(props.severity - 1))
-      .sort(sortHospitals);
-
-    setHospitals(hospitalsData);
-
-    setLoading(false);
+    return timeA - timeB;
   };
 
   useEffect(() => {
+    const abortController = new AbortController();
+
+    const fetchHospitals = async () => {
+      const res = await Promise.all([
+        fetch(
+          'http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals?limit=20',
+          {
+            signal: abortController.signal,
+          }
+        ).then(data => data.json()),
+        fetch(
+          'http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals?limit=20&page=1',
+          {
+            signal: abortController.signal,
+          }
+        ).then(data => data.json()),
+      ]).catch(() => {});
+
+      if (res) {
+        const json = [
+          ...res[0]._embedded.hospitals,
+          ...res[1]._embedded.hospitals,
+        ];
+
+        const hospitalsData = json
+          .map(computeWaitingTime)
+          .map(filterHospitalsBySeverity(props.severity - 1))
+          .sort(sortHospitals);
+
+        setHospitals(hospitalsData);
+
+        setLoading(false);
+      }
+    };
     // eslint-disable-next-line no-restricted-globals
     if (!isNaN(severity)) fetchHospitals();
+
+    return () => {
+      abortController.abort();
+    };
   }, [severity]);
 
   return (

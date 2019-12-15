@@ -9,34 +9,48 @@ const Illnesses = () => {
   const [loading, setLoading] = useState(true);
   const [illnesses, setIllnesses] = useState([]);
 
-  const fetchIllnesses = async () => {
-    const res = await fetch(
-      'http://dmmw-api.australiaeast.cloudapp.azure.com:8080/illnesses?limit=20'
-    );
-    const json = await res.json();
-    const sortedData = json._embedded.illnesses.sort((a, b) => {
-      const nameA = a.illness.name.toUpperCase(); // ignore upper and lowercase
-      const nameB = b.illness.name.toUpperCase(); // ignore upper and lowercase
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-
-      // names must be equal
-      return 0;
-    });
-
-    setIllnesses(sortedData);
-    setLoading(false);
-  };
-
   useEffect(() => {
+    const abortController = new AbortController();
+
+    const fetchIllnesses = async () => {
+      const res = await fetch(
+        'http://dmmw-api.australiaeast.cloudapp.azure.com:8080/illnesses?limit=20',
+        { signal: abortController.signal }
+      ).catch(() => {});
+
+      if (res) {
+        const json = await res.json();
+
+        if (json) {
+          const sortedData = json._embedded.illnesses.sort((a, b) => {
+            const nameA = a.illness.name.toUpperCase(); // ignore upper and lowercase
+            const nameB = b.illness.name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+
+            // names must be equal
+            return 0;
+          });
+
+          setIllnesses(sortedData);
+        }
+
+        setLoading(false);
+      }
+    };
+
     const elems = document.querySelectorAll('.modal');
     window.M.Modal.init(elems);
 
     fetchIllnesses();
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   return (

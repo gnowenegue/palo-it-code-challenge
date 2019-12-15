@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon server.js --watch routes models ./server.js",
+    "dev": "nodemon server.js --watch routes --watch models --watch ./server.js",
     "next-dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -20,7 +20,7 @@
     "isomorphic-unfetch": "^3.0.0",
     "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.8.1",
-    "next": "9.1.4",
+    "next": "9.1.5",
     "prop-types": "^15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0"
@@ -35,7 +35,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "nodemon": "^2.0.2",

@@ -1,17 +1,5 @@
 {
-  "name": "palo-it-code-challenge",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "nodemon server.js --watch routes --watch models --watch ./server.js",
-    "next-dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint . --ext .js --fix",
-    "test": "jest",
-    "test-coverage": "jest --coverage",
-    "test-watch": "jest --watch"
-  },
+  "author": "Eugene Wong <gnow.enegue@gmail.com>",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "cors": "^2.8.5",
@@ -40,5 +28,19 @@
     "jest": "^24.9.0",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1"
-  }
+  },
+  "license": "ISC",
+  "name": "palo-it-code-challenge",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "nodemon server.js --watch routes --watch models --watch ./server.js",
+    "lint": "eslint . --ext .js --fix",
+    "next-dev": "next dev",
+    "start": "next start",
+    "test": "jest",
+    "test-coverage": "jest --coverage",
+    "test-watch": "jest --watch"
+  },
+  "version": "0.1.0"
 }
